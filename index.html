@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRS</title>
+
+    <head>
+
+
+
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>NRS Group</title>
+
+        <meta name="description" content="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://www.nrsgroups.in/assets/img/favicon.png" rel="shortcut icon" type="image/png">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link href="https://www.nrsgroups.in/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+        <link href="https://www.nrsgroups.in/assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="https://www.nrsgroups.in/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://www.nrsgroups.in/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="https://www.nrsgroups.in/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="https://www.nrsgroups.in/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <!-- Template Main CSS File -->
+        <link href="https://www.nrsgroups.in/assets/css/style.css" rel="stylesheet">
+
+
+
+
+
+
+
+        <script type="text/javascript" charset="UTF-8"
+            src="https://maps.googleapis.com/maps-api-v3/api/js/61/10d/common.js"></script>
+        <script type="text/javascript" charset="UTF-8"
+            src="https://maps.googleapis.com/maps-api-v3/api/js/61/10d/util.js"></script>
+    </head>
+    <style>
+        /* Intro Overlay */
+        #intro-overlay {
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: linear-gradient(135deg, #0f2027, #2c5364);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.7s;
+            opacity: 1;
+        }
+
+        #intro-overlay img {
+            border-radius: 50%;
+            box-shadow: 0 4px 24px #0004;
+            margin-bottom: 32px;
+        }
+
+        #enter-site-btn:hover {
+            background: #45a049;
+        }
+
+        /* Main site content (draft-2) */
+        #main-site {
+            filter: blur(6px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Hamburger styles */
+        .navbar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1200;
+        }
+
+        .hamburger {
+            width: 28px;
+            height: 3px;
+            background: #222;
+            border-radius: 2px;
+            position: relative;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .hamburger:before,
+        .hamburger:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 28px;
+            height: 3px;
+            background: #222;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger:before {
+            top: -9px;
+        }
+
+        .hamburger:after {
+            top: 9px;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-toggle {
+                display: block;
+            }
+
+            #navbar {
+                position: relative;
+            }
+
+            #navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #111;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 75vw;
+                max-width: 300px;
+                height: 100vh;
+                box-shadow: 2px 0 16px rgba(0, 0, 0, 0.18);
+                z-index: 2000;
+                padding-top: 70px;
+                padding-left: 0;
+                transition: transform 0.3s;
+                transform: translateX(-100%);
+            }
+
+            #navbar.open ul {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            #navbar ul li {
+                margin: 0;
+                border-bottom: 1px solid #222;
+                text-align: left;
+                padding: 0 1.5rem;
+            }
+
+            #navbar ul li:last-child {
+                border-bottom: none;
+            }
+
+            #navbar ul li a {
+                color: #fff;
+                font-size: 1.1rem;
+                padding: 1.1rem 0;
+                display: block;
+            }
+
+            .navbar-toggle {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 2100;
+            }
+
+            .navbar .dropdown ul {
+                position: static;
+                background: none;
+                box-shadow: none;
+                padding-left: 1.5rem;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-content img {
+                max-width: 100%;
+            }
+
+            .button {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+        }
+
+        /* Overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Popup Box */
+        .popup-box {
+            background: #000;
+            padding: 20px 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #FFD700;
+            /* Yellow border */
+            color: #FFD700;
+            /* Yellow font */
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-box h2 {
+            font-size: 22px;
+            margin-top: 0;
+            color: #FFD700;
+        }
+
+        .popup-box p {
+            font-size: 16px;
+            color: #FFD700;
+        }
+
+        .popup-box a {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        .popup-box button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .popup-box button:hover {
+            background: #FFC400;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-box {
+                padding: 15px 20px;
+            }
+
+            .popup-box h2 {
+                font-size: 18px;
+            }
+
+            .popup-box p {
+                font-size: 14px;
+            }
+
+            .popup-box button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+
+
+
+
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0" style="overflow-x: hidden;">
+    <!-- Intro Overlay -->
+    <div id="intro-overlay"
+        style="position:fixed;z-index:9999;inset:0;background:linear-gradient(135deg,#000000,#151515);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.7s;opacity:1;">
+        <img src="nrs-logo.png" alt="Logo" style="box-shadow:0 4px 24px #0004;margin-bottom:32px;">
+        <a href="Index.html"
+            style="padding:14px 38px;font-size:1.1rem;cursor:pointer;font-weight:600;box-shadow:0 2px 8px #0003;transition:background 0.2s;">Enter
+            Site</a>
+    </div>
+    <!-- =====Popup HTML ===== -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <h2 style="font-family: cursive;"> <u>Disclaimer</u></h2>
+            <p style="font-family: cursive;">
+                This website is inspired by the design of
+                <a href="https://www.nrsgroups.in/" target="_blank">nrsgroups.in</a>,
+                but it is not an exact copy. Some elements, such as dropdown arrows and icons,
+                may not display correctly due to copyright
+                restrictions or missing assets. These have been intentionally avoided to
+                prevent any potential issues or harm to the system.
+            </p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-phone d-flex align-items-center"><span>+91 70444 70888</span></i>
+                <i class="fa-regular fa-envelope d-flex align-items-center ms-4"><span>info@nrsgroups.in</span></i>
+            </div>
+            <div class="languages d-none d-md-flex align-items-center">
+                <ul>
+                    <li><a href="https://www.facebook.com/nrsgroupkolkata" class="facebook" target="_blank"><i
+                                class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/group_nrs" class="twitter" target="_blank"><i
+                                class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/nrsgroup_/" class="instagram" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/@nrsgroup2024" class="youtube" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="/" class="logo"><img src="https://www.nrsgroups.in/assets/img/nrs-logo.png" alt="LOGO"
+                    class="img-responsive"></a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li class="dropdown"><a href="https://www.nrsgroups.in/#"><span>Business</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul class="">
+                            <li class=""><a class="" href="nrshotels.html">HOTEL &amp; RESTAURANT</a></li>
+                            <li class=""><a class="" href="https://www.nrsgroups.in/#">NRS BUSINESS CENTRE</a></li>
+                            <li class=""><a class="" href="https://nrsconstruction.com/">NRS CONSTRUCTION</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="upcoming-projects.html">Upcoming Projects</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+    <!-- End Header -->
+    <main id="main">
+
+
+        <div class="pin-spacer"
+            style="order: 0; place-self: auto; grid-area: auto; z-index: auto; float: none; flex-shrink: 1; display: flex; flex-direction: row; margin: 0px; inset: auto; position: relative; flex-basis: auto; overflow: hidden; box-sizing: border-box; width: 100%; max-width: 1522px; height: auto; padding: 0px 0px 40px; gap: 32px;">
+            <div id="main1"
+                style="translate: none; rotate: none; scale: none; left: 0px; top: 0.001px; margin: 0px; max-width: 1523px; width: 1523px; max-height: 443px; height: 443px; padding: 0px; box-sizing: border-box; transform: translate(0px, 0px);">
+                <div id="two">
+                    <div class="overlay"></div>
+                    <div class="pin-spacer-content" style="display: flex; flex-direction: row; width: 100%; gap: 32px;">
+                        <div class="textarea" style="flex: 1 1 40%; min-width: 260px;">
+                            <h1 style="opacity: 1;">WELCOME TO NRS <br> GROUP</h1>
+                            <p class="one-headline" style="opacity: 1;"><b>We are in the business of Hotel &amp;
+                                    Hospitality Services, Business Centre solutions, and Construction.</b></p>
+                            <div class="btns" style="opacity: 1;">
+                                <a href="https://www.nrsgroups.in/storage/uploads/2024/04/profile-new_compressed.pdf"
+                                    class="btn-book animated fadeInUp scrollto" target="_blank" style="opacity: 1;">Know
+                                    Us &nbsp;<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                <div class="d-flex align-items-center videobtn"><a
+                                        href="https://ik.imagekit.io/kk3flqe7i/nrs group.mp4?updatedAt=1725270900820"
+                                        class="glightbox play-btn" style="opacity: 1;"></a> Watch Video </div>
+                            </div>
+                        </div>
+                        <div class="pin-spacer-images"
+                            style="flex: 1 1 60%; display: flex; flex-direction: column; gap: 16px;">
+                            <div class="lineone">
+                                <div id="lineone" class="innerline" style="margin-top: 0; display: flex; gap: 8px;">
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/04/191c20697b1254288b3e7cb5d2d7b0dc.jpg)">
+                                    </div>
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/04/0601bc72d40c3756ed084628345a28b9.jpg)">
+                                    </div>
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/04/4b572572737da9176596a5f394645599.jpg)">
+                                    </div>
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/04/b13c41d7d8318f78564a5d722ef1a966.jpg)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lineone" id="linetwo-1">
+                                <div id="linetwo" class="innerline" style="margin-top: 0; display: flex; gap: 8px;">
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/04/60bfbdefaacb3e7ce7de21e3bfc40db1.jpg)">
+                                    </div>
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/04/12f178a2de4ec91a0c611c9776f5170c.jpg)">
+                                    </div>
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/09/99d1e8d44bd2cb5490b5e6b2f02420f5.jpg)">
+                                    </div>
+                                    <div class="cards"
+                                        style="background-image:url(https://www.nrsgroups.in/storage/uploads/2024/09/fba3adc194347c1081f86d09195184e8.jpg)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about-home">
+            <div class="container aos-init" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2 aos-init" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="about-home-img"> <img
+                                src="https://www.nrsgroups.in/storage/uploads/2024/04/about.jpg" alt="nrs-group-img"
+                                loading="lazy"> </div>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h3>ABOUT US</h3>
+                        <p class="fst-italic">At NRS Group, we build more than just structures; we create trust
+                            through excellence. Our renowned track record ensures impeccable design and punctual
+                            delivery, never compromising on quality or deadlines.</p>
+                        <ul style="list-style-type: disc; padding-left: 1.5em;"></ul>
+                        <li> UNPARALLELED EXPERIENCES</li>
+                        <li>LUXURY REDEFINED</li>
+                        <li>WORLD-CLASS SERVICE</li>
+                        </ul>
+                        <p>Join us at NRS Groups and see how we can turn your dreams into reality with unparalleled
+                            excellence.</p>
+                        <div class="col-xl-12 d-flex justify-content-start mt-20">
+                            <a href="https://www.nrsgroups.in/about-us">
+                                <button type="button" class="btn btn-warning">Read More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End About Section -->
+        <!-- ======= Why Us Section ======= -->
+        <section id="why-us" class="why-us" style="background-color: rgb(0, 0, 0);">
+            <div class="container aos-init" data-aos="fade-up" style="background-color: rgb(0, 0, 0);">
+                <div class="section-title">
+                    <h2>Why Us</h2>
+                    <p>Why Choose Us?</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 ">
+                        <div class="box aos-init" data-aos="zoom-in" data-aos-delay="100" id="card-section-area">
+                            <span>01</span>
+                            <h4>Boundless Adventures Await</h4>
+                            <p>Embark on unforgettable journeys meticulously crafted to envelop you in the essence
+                                of every locale.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="box box-2 aos-init" data-aos="zoom-in" data-aos-delay="200" id="card-section-area">
+                            <span>02</span>
+                            <h4>Luxury Redefined</h4>
+                            <p>Prepare to be enchanted with redefined luxury-unparalleled amenities, lavish
+                                accommodations, &amp; culinary delights fit for royalty.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="box aos-init" data-aos="zoom-in" data-aos-delay="300" id="card-section-area">
+                            <span>03</span>
+                            <h4>Exceeding Expectations</h4>
+                            <p>Experience the pinnacle of hospitality with our devoted team of aficionados,
+                                committed to orchestrating a stay that transcends the ordinary into the
+                                extraordinary.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Why Us Section -->
+
+        <!-- ======= Events Section ======= -->
+        <section id="events" class="upcoming-bg ">
+            <div class="container aos-init" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Projects</h2>
+                    <p>Upcoming Projects</p>
+                </div>
+                <div class="events-slider swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events aos-init"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper" id="swiper-wrapper-6063431f425e2ded" aria-live="off"
+                        style="transition-duration: 0ms; transform: translate3d(-11664px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group"
+                            aria-label="1 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/b55e3c259bc02ef528ed573786fda346.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>LAND OF LORD JAGANNATH</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">NRS Royal Classic, Puri beckons with panoramic vistas of
+                                        the azure sea, in the heart of Swargadwar.</p>
+                                    <p>The rooms are equipped with a balcony that opens up to the breathtaking
+                                        beach, while the beach huts pro- vide a laid-back ambiance for indulging in
+                                        water sports or simply soaking up the sun. A quick sojourn to the buzzing
+                                        bazaars of Puri will lead you to the an- cient Temple of Lord Jagannath and
+                                        myriad shopping opportunities. Our attentive service and delicious cui- sine
+                                        at our on-site restaurant guarantee a flawless stay, whether you're here on
+                                        business or religious en- lightenment. Embrace the tranquillity of this
+                                        coastal haven and bask in the essence of Puri's timeless charm.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/land-of-lord-jagannath" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group"
+                            aria-label="2 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/7c509f79f069a60d507a4f4d1fae3aa8.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>WAVE OF JOY</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Mandarmani, the i ta, is the most favoured coveted beach
+                                        getaway for those seeking a tranquil respite from the city bustle.</p>
+                                    <p>NRS Waves, invites you to indulge in an unforgettable experience, replete
+                                        with a pletho- ra of upscale amenities, ranging from refreshing poolside
+                                        revelries and soul-stirring campfires to pulsating DJ nights and productive
+                                        business meetings. Count on us to craft an unforgettable experience that you
+                                        and your loved ones will cherish for a lifetime.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/wave-of-joy" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                            data-swiper-slide-index="2" role="group" aria-label="3 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/01501540f46f3f5ee7cd6ac484867d91.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>NEW TOWN</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Nestled in the heart of Kolkata's IT hub and amidst
+                                        multiple IT Giants office campuses, our newest upcoming City Hotel in
+                                        Newtown</p>
+                                    <p>A ction Area 3, in Kolkata promises a fusion of modernity and sustainability.
+                                        This upcoming property is enclosed within the business hubs of Kolkata city
+                                        and within the proximity of the Kolkata Airport will offer luxury
+                                        accommodation for corporates and leisure travellers alike. Its lavish rooms
+                                        in Kolkata will redefine the old-world elegance with our modern convenience
+                                        resonating with the city's cacophony and nostalgia.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/new-town" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                            data-swiper-slide-index="3" role="group" aria-label="4 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/472b4c2c462d2ea879c832269e47bf5d.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>AYODHYA</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Ayodhya, the birthplace of Lord Ram, is one of the most
+                                        holiest place of pilgrimage for the Hindus. As the con- iruction Grand
+                                        Temple of Lord Ram almost complete, this place has started attracting
+                                        pilgrims from far and wide to seek divine blessings and religious
+                                        enlightment.</p>
+                                    <p>Our upcoming hotel in Ayodhya, is very strategically located. I is bang
+                                        opposite to the International Bus Stand and very near to the Grand Ram
+                                        Mandir, Hanuman Garhi, Kanak Bhawan, Tulsi Udyan, Nageshwar Nath Temple. The
+                                        Ayodhya International Airport is just a short drive â€˜away, making it
+                                        easily accessible for guests. Our guests will be able to immerse themselves
+                                        in a cocoon of com- fort and indulgence, as they partake of our upcoming
+                                        hotel's myriad offerings and discover the essence of the region in style and
+                                        peace.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/ayodhya" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                            data-swiper-slide-index="4" role="group" aria-label="5 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/3cfa6a27e6f31bc9aa53071a15384a72.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>SUNDARBAN</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Only a few kilometres from Gosaba, our upcoming resort is
+                                        tucked away in a vast mangrove area of Sundarban. It will offer unparalleled
+                                        luxury along with practical eco-friendly practices.</p>
+                                    <p>After a day of exploring the lush for- ests and beautiful waterways, our
+                                        magnificent rooms and suites will be the ideal place for our esteemed guests
+                                        to relax and rejuvenate. The upcoming resort will make the stay of each and
+                                        guests exceptional, from top-notch dining options to our cutting-edge
+                                        amenities and services, we will satisfy the needs our guests with great
+                                        detail</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/sundarban" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5" role="group"
+                            aria-label="6 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/03daa337af1d75f79e3843a62c34021b.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>TARAPITH</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Only a few kilometres from Gosaba, our upcoming resort is
+                                        tucked away in a vast mangrove area of Sundarban. It will offer unparalleled
+                                        luxury along with practical eco-friendly practices.</p>
+                                    <p>After a day of exploring the lush for- ests and beautiful waterways, our
+                                        magnificent rooms and suites will be the ideal place for our esteemed guests
+                                        to relax and rejuvenate. The upcoming resort will make the stay of each and
+                                        guests exceptional, from top-notch dining options to our cutting-edge
+                                        amenities and services, we will satisfy the needs our guests with great
+                                        detail</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/tarapith" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="0" role="group" aria-label="7 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/b55e3c259bc02ef528ed573786fda346.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>LAND OF LORD JAGANNATH</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">NRS Royal Classic, Puri beckons with panoramic vistas of
+                                        the azure sea, in the heart of Swargadwar.</p>
+                                    <p>The rooms are equipped with a balcony that opens up to the breathtaking
+                                        beach, while the beach huts pro- vide a laid-back ambiance for indulging in
+                                        water sports or simply soaking up the sun. A quick sojourn to the buzzing
+                                        bazaars of Puri will lead you to the an- cient Temple of Lord Jagannath and
+                                        myriad shopping opportunities. Our attentive service and delicious cui- sine
+                                        at our on-site restaurant guarantee a flawless stay, whether you're here on
+                                        business or religious en- lightenment. Embrace the tranquillity of this
+                                        coastal haven and bask in the essence of Puri's timeless charm.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/land-of-lord-jagannath" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="8 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/7c509f79f069a60d507a4f4d1fae3aa8.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>WAVE OF JOY</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Mandarmani, the i ta, is the most favoured coveted beach
+                                        getaway for those seeking a tranquil respite from the city bustle.</p>
+                                    <p>NRS Waves, invites you to indulge in an unforgettable experience, replete
+                                        with a pletho- ra of upscale amenities, ranging from refreshing poolside
+                                        revelries and soul-stirring campfires to pulsating DJ nights and productive
+                                        business meetings. Count on us to craft an unforgettable experience that you
+                                        and your loved ones will cherish for a lifetime.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/wave-of-joy" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2" role="group"
+                            aria-label="9 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/01501540f46f3f5ee7cd6ac484867d91.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>NEW TOWN</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Nestled in the heart of Kolkata's IT hub and amidst
+                                        multiple IT Giants office campuses, our newest upcoming City Hotel in
+                                        Newtown</p>
+                                    <p>A ction Area 3, in Kolkata promises a fusion of modernity and sustainability.
+                                        This upcoming property is enclosed within the business hubs of Kolkata city
+                                        and within the proximity of the Kolkata Airport will offer luxury
+                                        accommodation for corporates and leisure travellers alike. Its lavish rooms
+                                        in Kolkata will redefine the old-world elegance with our modern convenience
+                                        resonating with the city's cacophony and nostalgia.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/new-town" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3" role="group"
+                            aria-label="10 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/472b4c2c462d2ea879c832269e47bf5d.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>AYODHYA</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Ayodhya, the birthplace of Lord Ram, is one of the most
+                                        holiest place of pilgrimage for the Hindus. As the con- iruction Grand
+                                        Temple of Lord Ram almost complete, this place has started attracting
+                                        pilgrims from far and wide to seek divine blessings and religious
+                                        enlightment.</p>
+                                    <p>Our upcoming hotel in Ayodhya, is very strategically located. I is bang
+                                        opposite to the International Bus Stand and very near to the Grand Ram
+                                        Mandir, Hanuman Garhi, Kanak Bhawan, Tulsi Udyan, Nageshwar Nath Temple. The
+                                        Ayodhya International Airport is just a short drive â€˜away, making it
+                                        easily accessible for guests. Our guests will be able to immerse themselves
+                                        in a cocoon of com- fort and indulgence, as they partake of our upcoming
+                                        hotel's myriad offerings and discover the essence of the region in style and
+                                        peace.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/ayodhya" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="4" role="group"
+                            aria-label="11 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/3cfa6a27e6f31bc9aa53071a15384a72.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>SUNDARBAN</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Only a few kilometres from Gosaba, our upcoming resort is
+                                        tucked away in a vast mangrove area of Sundarban. It will offer unparalleled
+                                        luxury along with practical eco-friendly practices.</p>
+                                    <p>After a day of exploring the lush for- ests and beautiful waterways, our
+                                        magnificent rooms and suites will be the ideal place for our esteemed guests
+                                        to relax and rejuvenate. The upcoming resort will make the stay of each and
+                                        guests exceptional, from top-notch dining options to our cutting-edge
+                                        amenities and services, we will satisfy the needs our guests with great
+                                        detail</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/sundarban" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="5" role="group" aria-label="12 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/03daa337af1d75f79e3843a62c34021b.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>TARAPITH</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Only a few kilometres from Gosaba, our upcoming resort is
+                                        tucked away in a vast mangrove area of Sundarban. It will offer unparalleled
+                                        luxury along with practical eco-friendly practices.</p>
+                                    <p>After a day of exploring the lush for- ests and beautiful waterways, our
+                                        magnificent rooms and suites will be the ideal place for our esteemed guests
+                                        to relax and rejuvenate. The upcoming resort will make the stay of each and
+                                        guests exceptional, from top-notch dining options to our cutting-edge
+                                        amenities and services, we will satisfy the needs our guests with great
+                                        detail</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/tarapith" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group"
+                            aria-label="13 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/b55e3c259bc02ef528ed573786fda346.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>LAND OF LORD JAGANNATH</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">NRS Royal Classic, Puri beckons with panoramic vistas of
+                                        the azure sea, in the heart of Swargadwar.</p>
+                                    <p>The rooms are equipped with a balcony that opens up to the breathtaking
+                                        beach, while the beach huts pro- vide a laid-back ambiance for indulging in
+                                        water sports or simply soaking up the sun. A quick sojourn to the buzzing
+                                        bazaars of Puri will lead you to the an- cient Temple of Lord Jagannath and
+                                        myriad shopping opportunities. Our attentive service and delicious cui- sine
+                                        at our on-site restaurant guarantee a flawless stay, whether you're here on
+                                        business or religious en- lightenment. Embrace the tranquillity of this
+                                        coastal haven and bask in the essence of Puri's timeless charm.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/land-of-lord-jagannath" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group"
+                            aria-label="14 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/7c509f79f069a60d507a4f4d1fae3aa8.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>WAVE OF JOY</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Mandarmani, the i ta, is the most favoured coveted beach
+                                        getaway for those seeking a tranquil respite from the city bustle.</p>
+                                    <p>NRS Waves, invites you to indulge in an unforgettable experience, replete
+                                        with a pletho- ra of upscale amenities, ranging from refreshing poolside
+                                        revelries and soul-stirring campfires to pulsating DJ nights and productive
+                                        business meetings. Count on us to craft an unforgettable experience that you
+                                        and your loved ones will cherish for a lifetime.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/wave-of-joy" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                            data-swiper-slide-index="2" role="group" aria-label="15 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/01501540f46f3f5ee7cd6ac484867d91.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>NEW TOWN</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Nestled in the heart of Kolkata's IT hub and amidst
+                                        multiple IT Giants office campuses, our newest upcoming City Hotel in
+                                        Newtown</p>
+                                    <p>A ction Area 3, in Kolkata promises a fusion of modernity and sustainability.
+                                        This upcoming property is enclosed within the business hubs of Kolkata city
+                                        and within the proximity of the Kolkata Airport will offer luxury
+                                        accommodation for corporates and leisure travellers alike. Its lavish rooms
+                                        in Kolkata will redefine the old-world elegance with our modern convenience
+                                        resonating with the city's cacophony and nostalgia.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/new-town" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                            data-swiper-slide-index="3" role="group" aria-label="16 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/472b4c2c462d2ea879c832269e47bf5d.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>AYODHYA</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Ayodhya, the birthplace of Lord Ram, is one of the most
+                                        holiest place of pilgrimage for the Hindus. As the con- iruction Grand
+                                        Temple of Lord Ram almost complete, this place has started attracting
+                                        pilgrims from far and wide to seek divine blessings and religious
+                                        enlightment.</p>
+                                    <p>Our upcoming hotel in Ayodhya, is very strategically located. I is bang
+                                        opposite to the International Bus Stand and very near to the Grand Ram
+                                        Mandir, Hanuman Garhi, Kanak Bhawan, Tulsi Udyan, Nageshwar Nath Temple. The
+                                        Ayodhya International Airport is just a short drive â€˜away, making it
+                                        easily accessible for guests. Our guests will be able to immerse themselves
+                                        in a cocoon of com- fort and indulgence, as they partake of our upcoming
+                                        hotel's myriad offerings and discover the essence of the region in style and
+                                        peace.</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/ayodhya" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                            data-swiper-slide-index="4" role="group" aria-label="17 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/3cfa6a27e6f31bc9aa53071a15384a72.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>SUNDARBAN</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Only a few kilometres from Gosaba, our upcoming resort is
+                                        tucked away in a vast mangrove area of Sundarban. It will offer unparalleled
+                                        luxury along with practical eco-friendly practices.</p>
+                                    <p>After a day of exploring the lush for- ests and beautiful waterways, our
+                                        magnificent rooms and suites will be the ideal place for our esteemed guests
+                                        to relax and rejuvenate. The upcoming resort will make the stay of each and
+                                        guests exceptional, from top-notch dining options to our cutting-edge
+                                        amenities and services, we will satisfy the needs our guests with great
+                                        detail</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/sundarban" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5" role="group"
+                            aria-label="18 / 18">
+                            <div class="row event-item">
+                                <div class="col-lg-6"> <img
+                                        src="https://www.nrsgroups.in/storage/uploads/2024/04/03daa337af1d75f79e3843a62c34021b.jpg"
+                                        class="img-fluid" alt="nrs-group-img" loading="lazy"> </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>TARAPITH</h3>
+
+                                    <div class="price">
+                                        <p><span>NRS Royal Classic (Upcoming)</span></p>
+                                    </div>
+                                    <p class="fst-italic">Only a few kilometres from Gosaba, our upcoming resort is
+                                        tucked away in a vast mangrove area of Sundarban. It will offer unparalleled
+                                        luxury along with practical eco-friendly practices.</p>
+                                    <p>After a day of exploring the lush for- ests and beautiful waterways, our
+                                        magnificent rooms and suites will be the ideal place for our esteemed guests
+                                        to relax and rejuvenate. The upcoming resort will make the stay of each and
+                                        guests exceptional, from top-notch dining options to our cutting-edge
+                                        amenities and services, we will satisfy the needs our guests with great
+                                        detail</p>
+                                    <div class="col-xl-12 d-flex justify-content-start mt-20"> <a
+                                            href="https://www.nrsgroups.in/tarapith" type="button"
+                                            class="btn btn-warning">Read More</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+            </div>
+        </section>
+        <!-- End Events Section -->
+        <!-- ======= Specials Section ======= -->
+        <section id="specials" class="specials">
+            <div class="container aos-init" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Specials</h2>
+                    <p>Check Our Business</p>
+                </div>
+                <div class="row aos-init" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="col-lg-3">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item"> <a class="nav-link  active show" data-bs-toggle="tab"
+                                    href="#tab-1">NRS Hospitality</a> </li>
+                            <li class="nav-item"> <a class="nav-link " data-bs-toggle="tab" href="#tab-2">NRS
+                                    Business Centre</a> </li>
+                            <li class="nav-item"> <a class="nav-link " data-bs-toggle="tab" href="#tab-3">NRS
+                                    Construction</a> </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-lg-9 mt-4 mt-lg-0">
+                        <div class="tab-content">
+                            <div class="tab-pane  active show" id="tab-1">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>NRS Hospitality <i class="fas fa-check-circle"></i></h3>
+                                        <p class="fst-italic">Thanks to the unwavering commitment and tireless
+                                            efforts of the NRS group, the hotel and restaurant industry has
+                                            experienced a significant boom following the end of the lockdown.</p>
+                                        <p>Their innovative strategies and relentless pursuit of perfection have
+                                            revitalised the industry and created a ripple effect of prosperity and
+                                            growth. As pioneers in their field, we continue to inspire and lead,
+                                            ensuring that every guest experience is nothing short of extraordinary.
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2"> <img
+                                            src="https://www.nrsgroups.in/storage/uploads/2024/04/b2a6e9347ae976b7eb156fa7c06eba9d.jpg"
+                                            alt="nrs-group-img" loading="lazy" class="img-fluid"> </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="tab-2">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>NRS Business Centre <i class="fas fa-check-circle"></i></h3>
+                                        <p class="fst-italic">NRS Business Centre is the main hub of activity for
+                                            all our businesses. We work hard to maintain a clean and vibrant
+                                            atmosphere where everyone is appreciated for their hard work.</p>
+                                        <p>Our dynamic environment encourages innovation and productivity. From
+                                            brainstorming sessions to celebratory milestones, every moment at NRS
+                                            Business Centre is infused with energy and enthusiasm, driving our
+                                            collective vision forward with passion and purpose.</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2"> <img
+                                            src="https://www.nrsgroups.in/storage/uploads/2024/04/7f0ca24cc913034061275d7c460a997f.jpg"
+                                            alt="nrs-group-img" loading="lazy" class="img-fluid"> </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="tab-3">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>NRS Construction <i class="fas fa-check-circle"></i></h3>
+                                        <p class="fst-italic">NRS Construction strives to create homes that are an
+                                            integral part of the neighbourhood, reflecting the essence of society
+                                            and the environment at large.</p>
+                                        <p>With a commitment to sustainable design and thoughtful planning From
+                                            charming residential enclaves to vibrant commercial complexes, our
+                                            creations stand as testaments to our dedication to building a better
+                                            tomorrow, one brick at a time.</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2"> <img
+                                            src="https://www.nrsgroups.in/storage/uploads/2024/04/e5b5d5fd93efa087cbcdc2014cf83ce2.jpg"
+                                            alt="nrs-group-img" loading="lazy" class="img-fluid"> </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Specials Section -->
+        <!-- ======= Testimonials Section ======= -->
+
+        <section id="testimonials" class="testimonials section-bg">
+            <div class="container aos-init" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Testimonials</h2>
+                    <p>What they're saying about us</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-md6 col-sm-12">
+                        <div class="section-title area">
+                            <p>NRS Royal Palace Puri</p>
+                        </div>
+
+                        <div class="testimonials-slider-hom swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events aos-init"
+                            data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper" id="swiper-wrapper-2a516541dbf910c2d" aria-live="off"
+                                style="transform: translate3d(-3280px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                    data-swiper-slide-index="4" role="group" aria-label="1 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Everything is very
+                                            fine..... We are very happy for everything.... Mr Duna is very gentle
+                                            and he is very cooperative with us.... Thank you<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/93e0599e54764b76c6513e7ef72c5ee7.png"
+                                            class="testimonial-img" alt="Susmita Bhattacharjee">
+                                        <h3>Susmita Bhattacharjee</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0"
+                                    role="group" aria-label="2 / 7" style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>A very nice big
+                                            property just infront of the sea beach, on the new Marine drive road.
+                                            Spacious rooms, Backside large garden, A well decorated Restaurant (
+                                            with separate Bar ) having many options of breakfast makes the hotel a
+                                            better option to spend holidays than many other hotels in Puri.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/989381a61feeb5f7f8cc3092cfea275b.png"
+                                            class="testimonial-img" alt="Santanu Goswami">
+                                        <h3>Santanu Goswami</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="3 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Very nice hotel and
+                                            courteous staffs! Rooms were clean. House keeping services were also
+                                            good! |In house dining services were also good. Great view of Mt.
+                                            Kunchanjhungha from rooms. All good. Thanks to the team.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/4b1224cc5b869cd4fcbd2e411246302c.png"
+                                            class="testimonial-img" alt="Kamal Das">
+                                        <h3>Kamal Das</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="2" role="group" aria-label="4 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>This place has
+                                            great scenic views and also staff was very polite and gentle and
+                                            supportive. Taste of food here was awesome and us offcourse service also
+                                            was great. It is too good for family. They also provided can for upfront
+                                            journey which was cheapest and comfortable. Must stay at this place if
+                                            you are visiting puri orissa.
+                                            Jai jagganath<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/3447a78a89b4e336d252f6b2ff396db2.png"
+                                            class="testimonial-img" alt="Manish Bhayade">
+                                        <h3>Manish Bhayade</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="3" role="group"
+                                    aria-label="5 / 7" style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>V r from mysuru ,
+                                            karnataka.. our stay was very pleasant here. Services and staffs r too
+                                            good. South indian foods r excellent and enjoyed stay, food .. I
+                                            strongly recommend this.....<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/6d7a92e9b7a477219edf829125aecaab.png"
+                                            class="testimonial-img" alt="Dr Nishan">
+                                        <h3>Dr Nishan</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="4" role="group"
+                                    aria-label="6 / 7" style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Everything is very
+                                            fine..... We are very happy for everything.... Mr Duna is very gentle
+                                            and he is very cooperative with us.... Thank you<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/93e0599e54764b76c6513e7ef72c5ee7.png"
+                                            class="testimonial-img" alt="Susmita Bhattacharjee">
+                                        <h3>Susmita Bhattacharjee</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-next"
+                                    data-swiper-slide-index="0" role="group" aria-label="7 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>A very nice big
+                                            property just infront of the sea beach, on the new Marine drive road.
+                                            Spacious rooms, Backside large garden, A well decorated Restaurant (
+                                            with separate Bar ) having many options of breakfast makes the hotel a
+                                            better option to spend holidays than many other hotels in Puri.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/989381a61feeb5f7f8cc3092cfea275b.png"
+                                            class="testimonial-img" alt="Santanu Goswami">
+                                        <h3>Santanu Goswami</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                                <span class="swiper-pagination-bullet" tabindex="0" role="button"
+                                    aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet"
+                                    tabindex="0" role="button" aria-label="Go to slide 2"></span><span
+                                    class="swiper-pagination-bullet" tabindex="0" role="button"
+                                    aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet"
+                                    tabindex="0" role="button" aria-label="Go to slide 4"></span><span
+                                    class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0"
+                                    role="button" aria-label="Go to slide 5"></span>
+                            </div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md6 col-sm-12">
+                        <div class="section-title area">
+                            <p>NRS Norling Retreat</p>
+                        </div>
+
+                        <div class="testimonials-slider-hom swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events aos-init"
+                            data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper" id="swiper-wrapper-d2c529736cec9be4" aria-live="off"
+                                style="transform: translate3d(-3280px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                    data-swiper-slide-index="4" role="group" aria-label="1 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>The location was
+                                            very close to the mall and the vehicle reached the hotel entrance .Food
+                                            quality and quantity is very good .The buffet breakfast was also very
+                                            good . Room size is small and can feel a bit cramped for space and
+                                            specially thanks to front office staff Mr. Ujjal her behaviour is very
+                                            good and very helpful.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/dcdf53b259473b26ebb754abae639c6a.png"
+                                            class="testimonial-img" alt="Puja Ray">
+                                        <h3>Puja Ray</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0"
+                                    role="group" aria-label="2 / 7" style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Excellent location,
+                                            well decorated neat &amp; clean rooms with all modern amenities made our
+                                            stay a memorable one. I would like to categorically mention here the
+                                            behavior of front desk officials &amp; all service staffs are simply
+                                            superb.. to say the least. They are always there to serve you with a
+                                            smile on their face. Besides they serve good food at a reasonable price.
+                                            Overall a good property for your stay.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/3ca442c8183ae98a92a1d1f37c1a6267.png"
+                                            class="testimonial-img" alt="Sarmistha Ray">
+                                        <h3>Sarmistha Ray</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="3 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Very favourable
+                                            location ,helping and very cooperative staff. Food is really really
+                                            homely , comforting and amazing. Lovely experience over all<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/a6f1d0baeb0f4351ca553c1eb313c94e.png"
+                                            class="testimonial-img" alt="Simran Sonkar">
+                                        <h3>Simran Sonkar</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-swiper-slide-index="2" role="group" aria-label="4 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>An unforgettable
+                                            stay. Impeccable service, luxurious accommodations, and convenient
+                                            amenities exceeded expectations. From the elegant lobby to the exquisite
+                                            dining options, every moment was a delight. Highly recommend for a truly
+                                            great experience. Mr.Mandal &amp; his team provides best hospitality.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/f94a8a89fd857dee9f15a9617273afed.png"
+                                            class="testimonial-img" alt="Vivek Baruah">
+                                        <h3>Vivek Baruah</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="3" role="group"
+                                    aria-label="5 / 7" style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Amazing stay, great
+                                            service. People working there make you feel at home. We traveled with a
+                                            kid and they were absolutely amazing and very accommodating of our
+                                            requests. Great food too. Special mention to the chefs there, amazing
+                                            spread and great taste on all the 6 meals we had. Definitely
+                                            recommend.<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/a89aa99c574f654c73803b96352b4489.png"
+                                            class="testimonial-img" alt=" Lakshmi Srujana Sarvepalli">
+                                        <h3> Lakshmi Srujana Sarvepalli</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="4" role="group"
+                                    aria-label="6 / 7" style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            and he is very cooperative with us.... Thank you<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/93e0599e54764b76c6513e7ef72c5ee7.png"
+                                            class="testimonial-img" alt="Susmita Bhattacharjee">
+                                        <h3>Susmita Bhattacharjee</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-next"
+                                    data-swiper-slide-index="0" role="group" aria-label="7 / 7"
+                                    style="width: 636px; margin-right: 20px;">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>A very nice big
+                                            property just infront of the sea beach, on the new Marine drive road.
+                                            Spacious rooms, Backside large garden, A well decorated Restaurant (
+                                            with separate Bar ) having many options of breakfast makes the hotel a
+                                            better option to spend holidays than many other hotels in Puri.<i
+                                                class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="https://www.nrsgroups.in/storage/uploads/2024/09/989381a61feeb5f7f8cc3092cfea275b.png"
+                                            class="testimonial-img" alt="Santanu Goswami">
+                                        <h3>Santanu Goswami</h3>
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                                <span class="swiper-pagination-bullet" tabindex="0" role="button"
+                                    aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet"
+                                    tabindex="0" role="button" aria-label="Go to slide 2"></span><span
+                                    class="swiper-pagination-bullet" tabindex="0" role="button"
+                                    aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet"
+                                    tabindex="0" role="button" aria-label="Go to slide 4"></span><span
+                                    class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0"
+                                    role="button" aria-label="Go to slide 5"></span>
+                            </div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xl-12 d-flex justify-content-center mt-20">
+                    <a href="https://www.nrsgroups.in/testimonials">
+                        <button type="button" class="btn btn-warning">Read More</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials Section -->
+
+        <!-- ======= Gallery Section ======= -->
+        <section id="gallery" class="gallery">
+            <div class="container aos-init" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Gallery</h2>
+                    <p>Some photos from Our Group</p>
+                </div>
+            </div>
+            <div class="container-fluid aos-init" data-aos="fade-up" data-aos-delay="100">
+                <div class="row g-0">
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/cf882a53e2c32218054821b301c4756e.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/cf882a53e2c32218054821b301c4756e.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/250d6ecc3145a2f9119b102df7d60ce2.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/250d6ecc3145a2f9119b102df7d60ce2.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/ffa7e21afb8128503bc80983bdd71091.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/ffa7e21afb8128503bc80983bdd71091.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/f60b0b73d226f86f7e3dc6ecf5df8136.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/f60b0b73d226f86f7e3dc6ecf5df8136.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/876cdf7409f195abb2608f1744f7e929.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/876cdf7409f195abb2608f1744f7e929.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/f1aa6e98a9d336c8a82ee689f5a2aa66.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/f1aa6e98a9d336c8a82ee689f5a2aa66.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/0363bebb8c6f595d6a868961011f1514.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/0363bebb8c6f595d6a868961011f1514.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="https://www.nrsgroups.in/storage/uploads/2024/04/c257034f01567f0a1c549b33556a29ed.jpg"
+                                class="gallery-lightbox" data-gall="gallery-item"> <img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/c257034f01567f0a1c549b33556a29ed.jpg"
+                                    alt="nrs-group-img" loading="lazy" class="img-fluid"> </a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 d-flex justify-content-center mt-20">
+                        <a href="https://www.nrsgroups.in/gallery">
+                            <button type="button" class="btn btn-warning">View More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Gallery Section -->
+
+        <!-- ==========  partner Section =========== -->
+        <section id="partner1" class="why-us">
+            <div class="container aos-init" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Brands</h2>
+                    <p>Know Our Brands</p>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-4 col-6 mt-4 mt-lg-0 mb-20">
+                        <div class="box box-2 logo aos-init" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="https://nrsroyalpalace.com/" target="_blank"><img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/a30e6aeeadd38f242aa6366069cda596.png"
+                                    alt="Royal Place Puri" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6 mt-4 mt-lg-0 mb-20">
+                        <div class="box box-2 logo aos-init" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="https://nrsroyalgrand.com/" target="_blank"><img
+                                    src="https://www.nrsgroups.in/storage/uploads/2025/06/c28de15108be8ada13ee3decadddce6a.png"
+                                    alt="Grand" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6 mt-4 mt-lg-0 mb-20">
+                        <div class="box box-2 logo aos-init" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="https://nrsnorlingretreat.com/" target="_blank"><img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/73f2aa01ce59d1e5c7c600d2cf5da723.png"
+                                    alt="Norling Retreat" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6 mt-4 mt-lg-0 mb-20">
+                        <div class="box box-2 logo aos-init" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="https://bistrobars.com/" target="_blank"><img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/18ebf757e52cdf49319eab7eb4efa764.png"
+                                    alt="Bistro y" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6 mt-4 mt-lg-0 mb-20">
+                        <div class="box box-2 logo aos-init" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="#" target="_blank"><img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/40c12fe28c26ad9d01b5ed94378ef6a0.png"
+                                    alt="Hakaland" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6 mt-4 mt-lg-0 mb-20">
+                        <div class="box box-2 logo aos-init" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="#" target="_blank"><img
+                                    src="https://www.nrsgroups.in/storage/uploads/2024/04/d946615dc4c8f8bcdba2bfdc64f56170.png"
+                                    alt="Construction" class="img-responsive"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <h3>NRS GROUP</h3>
+                            <p>Godrej Genesis Building, EP &amp; GP Block, 13th Floor, Unit: 1308, Kolkata, India,
+                                West Bengal, 700091<br><br>
+                                <strong>Phone:</strong> +91 70444 70888<br>
+                                <strong>Email:</strong> info@nrsgroups.in<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul class="">
+                            <li class=""><a class="" href="Index.html">Home</a></li>
+                            <li class=""><a class="" href="about-us.html">About Us</a></li>
+                            <li class=""><a class="" href="gallery.html">Gallery</a></li>
+                            <li class=""><a class="" href="testimonials.html">Testimonials</a>
+                            </li>
+                            <li class=""><a class="" href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul class="">
+                            <li class=""><a class="" href="upcoming-projects.html">Upcoming
+                                    Projects</a></li>
+                            <li class=""><a class="" href="contact-us.html">Contact Us</a></li>
+                            <li class=""><a class="" href="https://www.nrsgroups.in/privacy-policy">Privacy
+                                    policy</a></li>
+                            <li class=""><a class="" href="https://www.nrsgroups.in/terms-conditions">Terms &amp;
+                                    Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Our Business</h4>
+                        <ul class="">
+                            <li class=""><a class="" href="https://www.nrsgroups.in/nrs-hospitality">NRS
+                                    Hospitality</a></li>
+                            <li class=""><a class="" href="https://www.nrsgroups.in/nrs-business-centre">NRS
+                                    Business Centre</a></li>
+                            <li class=""><a class="" href="https://www.nrsgroups.in/nrs-construction">NRS
+                                    Construction</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-newsletter">
+                        <h4>Our Newsletter</h4>
+                        <p>Sign up for our newsletter and become part of the journey.</p>
+                        <form action="https://www.nrsgroups.in/home/newsletterdatasend" name="newsletterFrm"
+                            method="post" accept-charset="utf-8">
+                            <input type="hidden" name="csrf_test_name" value="07763e53b3fd1b174c4e7ab5fcb8e47e">
+
+                            <input type="email" name="email" required="required" placeholder="Your Email Address"><input
+                                type="submit" value="Subscribe">
+                        </form>
+
+
+                        <div class="social-links mt-3">
+                            <a href="https://www.facebook.com/nrsgroupkolkata" class="facebook" target="_blank"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/group_nrs" class="twitter" target="_blank"><i
+                                    class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.instagram.com/nrsgroup_/" class="instagram" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/@nrsgroup2024" class="youtube" target="_blank"><i
+                                    class="fa-brands fa-youtube"></i></a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                Copyright ©2025 <strong><span>NRS Group</span></strong>, All Rights Reserved.
+            </div>
+            <div class="credits" style="font-family: cursive; font-size: large;">
+                Developed by <a href="https://elixir-portfolio.tiiny.site/" target="_blank"><B><i>Piyush Pratap
+                            Verma</B></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- End Footer -->
+    <div class="whats-app">
+        <a href="https://wa.me/7044470888?text=Hi" target="_blank"> <img
+                src="https://www.nrsgroups.in/assets/img/whatsapp.png" class="img-responsive"></a>
+    </div>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+    <script type="text/javascript" async="" charset="utf-8"
+        src="https://www.gstatic.com/recaptcha/releases/3jpV4E_UA9gZWYy11LtggjoU/recaptcha__en.js"
+        crossorigin="anonymous"
+        integrity="sha384-8BePxg6Wh2fV0vTELhV40WIIkZzA8q6AbKptdf+cRazn9sNHQQTRJjigOcFB/dqA"></script>
+    <script src="https://www.nrsgroups.in/assets/js/slider/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+    <!-- Header Slider Start -->
+    <script src="https://www.nrsgroups.in/assets/js/slider/gsap.min.js"></script>
+    <script src="https://www.nrsgroups.in/assets/js/slider/ScrollTrigger.min.js"></script>
+
+    <!-- Header Slider End -->
+    <!-- Vendor JS Files -->
+    <script src="https://www.nrsgroups.in/assets/vendor/aos/aos.js"></script>
+    <script src="https://www.nrsgroups.in/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.nrsgroups.in/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://www.nrsgroups.in/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+    <script src="https://www.nrsgroups.in/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="https://www.nrsgroups.in/assets/js/main.js"></script>
+    <script src="https://www.nrsgroups.in/assets/js/header.js"></script>
+
+
+
+    <script>window.onload = function () {
+            if (jQuery('#g-recaptcha-response').length > 0) {
+                var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+                if ($recaptcha) {
+                    $recaptcha.setAttribute("required", "required");
+                }
+            }
+        };</script>
+    <script>
+        // Hamburger menu toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggle = document.getElementById('navbar-toggle');
+            var navbar = document.getElementById('navbar');
+            if (toggle && navbar) {
+                toggle.addEventListener('click', function () {
+                    navbar.classList.toggle('open');
+                });
+            }
+        });
+        // Auto-hide intro overlay after 4 seconds
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('intro-overlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('intro-overlay').style.display = 'none';
+                    document.getElementById('main-site').style.filter = 'none';
+                    document.getElementById('main-site').style.pointerEvents = 'auto';
+                    document.getElementById('main-site').style.userSelect = 'auto';
+                }, 700);
+            }, 4000);
+        });
+        // Popup functionality
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        window.onload = function () {
+            document.getElementById("popup").style.display = "flex";
+        };
+    </script>
+</body>
+
+
+</html>
